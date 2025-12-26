@@ -1,5 +1,5 @@
 ---
-name: committing-changes
+name: commit
 description: Divides large changes into logical commits using hunk-based staging. Analyzes git diffs to propose meaningful minimal units and uses git-sequential-stage for automated sequential staging. Use when making multiple changes that should be split into separate commits.
 model: haiku
 disable-model-invocation: true

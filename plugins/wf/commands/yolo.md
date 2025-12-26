@@ -1,5 +1,5 @@
 ---
-name: enter yolo mode
+name: yolo
 disable-model-invocation: true
 ---
 

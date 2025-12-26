@@ -1,5 +1,5 @@
 ---
-name: reviewing-pull-requests
+name: reveiw-pr
 description: Enables pair programming review of pull requests from the author's perspective. Checkouts PR branch, performs code review, explores changes, and conducts dynamic testing. Use when collaborating on PR review to understand implementation and validate functionality.
 argument-hint: [url]
 model: haiku

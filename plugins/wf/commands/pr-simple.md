@@ -1,5 +1,5 @@
 ---
-name: creating-simple-pull-requests
+name: pr-simple
 description: Creates minimal pull requests without additional processing. Creates branch and PR following template with Japanese description. Use when quickly proposing changes without waiting for CI or code review.
 model: haiku
 disable-model-invocation: true

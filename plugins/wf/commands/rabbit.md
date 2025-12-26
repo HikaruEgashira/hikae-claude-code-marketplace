@@ -1,5 +1,5 @@
 ---
-name: discussing-coderabbit-comments
+name: rabbit
 description: Engages with CodeRabbit bot comments on pull requests. Retrieves all @coderabbitai comments, validates reproducibility through testing, and creates fix subtasks when appropriate. Use when reviewing CodeRabbit feedback and addressing its suggestions.
 model: sonnet
 disable-model-invocation: true
