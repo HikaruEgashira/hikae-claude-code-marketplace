@@ -1,7 +1,9 @@
 ---
-description: review pr
+name: reviewing-pull-requests
+description: Enables pair programming review of pull requests from the author's perspective. Checkouts PR branch, performs code review, explores changes, and conducts dynamic testing. Use when collaborating on PR review to understand implementation and validate functionality.
 argument-hint: [url]
 model: haiku
+disable-model-invocation: true
 ---
 
 PR $1 について理解しPR authorの身になってペアプロセッションを開始します。

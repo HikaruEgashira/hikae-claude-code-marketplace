@@ -1,7 +1,9 @@
 ---
-description: watch pr
+name: watching-pull-requests
+description: Monitors pull requests until mergeable. Continuously checks CI status and code quality, re-checks every minute until all conditions pass. Use when waiting for PR to be ready for merge and need automated monitoring.
 argument-hint: [url]
 model: haiku
+disable-model-invocation: true
 ---
 
 PR $1 がマージ可能になるまで監視し続けます。

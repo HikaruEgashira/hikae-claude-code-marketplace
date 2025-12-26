@@ -1,6 +1,8 @@
 ---
-description: 分割commit
+name: committing-changes
+description: Divides large changes into logical commits using hunk-based staging. Analyzes git diffs to propose meaningful minimal units and uses git-sequential-stage for automated sequential staging. Use when making multiple changes that should be split into separate commits.
 model: haiku
+disable-model-invocation: true
 ---
 
 大きな変更を論理的な単位に分割してコミットします。LLMがgit diffを分析して意味のある最小単位を提案し、`git-sequential-stage`ツールによる自動化された逐次ステージングでコミットします。
