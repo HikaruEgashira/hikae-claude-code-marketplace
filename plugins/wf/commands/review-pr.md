@@ -3,7 +3,7 @@ name: reveiw-pr
 description: PRをペアプロ形式でレビュー
 argument-hint: [url]
 model: haiku
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 PR $1 について理解しPR authorの身になってペアプロセッションを開始します。
