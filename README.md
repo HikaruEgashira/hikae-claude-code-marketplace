@@ -30,3 +30,7 @@ Add these convenient shell functions to your `.zshrc` or `.bashrc` for quick acc
 review() { claude "/review $1"; }
 current() { claude "/current gh pr view | head -n 150 => $(gh pr view | head -n 150), gh pr diff | head -n 50 => $(gh pr diff | head -n 50) $1"; }
 ```
+
+## Awesome Claude Code
+
+- https://github.com/fumiya-kume/claude-code
