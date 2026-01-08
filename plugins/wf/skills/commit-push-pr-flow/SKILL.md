@@ -1,5 +1,5 @@
 ---
-name: create-pr
+name: commit-push-pr-flow
 description: PRをサクッと作成。タスク完了後に実行するフローです
 model: haiku
 ---
