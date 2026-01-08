@@ -13,6 +13,7 @@
 ```bash
 claude plugin marketplace add HikaruEgashira/hikae-claude-code-marketplace
 claude plugin install wf
+claude plugin install architect
 ```
 
 #### Additional Claude Code Plugins
