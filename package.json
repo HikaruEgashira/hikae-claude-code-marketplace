@@ -1,0 +1,26 @@
+{
+  "name": "hikae-claude-code-marketplace",
+  "version": "2.0.0",
+  "description": "Claude Code plugins with integration tests",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@vitest/ui": "^1.1.0",
+    "execa": "^8.0.1",
+    "gray-matter": "^4.0.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0",
+    "@vitest/coverage-v8": "^1.1.0"
+  },
+  "dependencies": {
+    "yaml": "^2.3.4"
+  }
+}

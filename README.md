@@ -15,6 +15,12 @@ claude plugin marketplace add HikaruEgashira/hikae-claude-code-marketplace
 claude plugin install wf
 ```
 
+#### Testing
+
+This project includes comprehensive integration tests for skill chains using **vitest**.
+
+See [tests/README.md](./tests/README.md) for detailed testing documentation.
+
 #### Additional Claude Code Plugins
 
 - https://github.com/fumiya-kume/claude-code
