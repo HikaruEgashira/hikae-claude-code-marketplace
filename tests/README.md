@@ -1,6 +1,6 @@
 # Integration Tests
 
-Comprehensive integration tests for skill chains using **vitest**.
+Comprehensive integration tests for skill chains using **vitest** and **Claude CLI**.
 
 ## Setup
 
@@ -43,6 +43,34 @@ npm test -- --grep "\\[opus\\]"
 
 ## Test Types
 
+### Skill Selection Evaluation Tests ⭐ **NEW**
+
+**File:** `tests/integration/skill-selection.test.ts`
+
+**目的**: Claude CLIが指示に対して正しいスキルを選択するかを検証
+
+**アプローチ**:
+- 実際にClaude CLIプロセスを起動
+- 指示を渡してスキル実行をトレース
+- スキルのdescription（実行タイミング）が正しく評価されているかを検証
+
+**テストケース**:
+
+**曖昧な指示 → assignスキルが実行される**
+- 「Next」 → `wf:assign` が実行される（コンテキスト不足）
+- 「続けて」 → `wf:assign` が実行される
+- 「何をすればいい？」 → `wf:assign` が実行される
+
+**明確な指示 → 適切なスキルが実行される（assignは実行されない）**
+- 「PRを作成して」 → `wf:commit-push-pr-flow` が実行される
+- 「このPRをレビュー」 → `wf:review-flow` が実行される
+- 「変更をコミットしてプッシュ」 → `wf:commit-push-pr-flow` が実行される
+
+**スキルdescriptionベース検証**:
+- `assign`: "When context is missing" → コンテキスト不足時に実行
+- `commit-push-pr-flow`: "After task completion" → タスク完了後に実行
+- `review-flow`: "After PR creation" → PR作成後に実行
+
 ### Skill Chain Integration Tests
 
 **File:** `tests/integration/skill-chain.test.ts`
@@ -51,19 +79,6 @@ npm test -- --grep "\\[opus\\]"
 - Test full chain: assign → commit-push-pr-flow → review-flow
 - Error handling and edge cases
 - Argument substitution
-
-### Instruction Validation Tests
-
-**File:** `tests/integration/instruction-validation.test.ts`
-
-- Validate instructions map to correct skills
-- Verify expected commands are called
-- Verify forbidden commands are not called
-- Validate command call counts
-
-Example:
-- 指示A: 「現在のPRを引き継いで」→ `gh pr view` が1回呼ばれる
-- 指示B: 「PRを作成して」→ `gh pr view` は呼ばれない
 
 ### Model Matrix Tests
 

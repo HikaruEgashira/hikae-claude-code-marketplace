@@ -16,19 +16,6 @@ export interface SkillExecutionResult {
   error?: string;
 }
 
-export interface InstructionTestCase {
-  instruction: string;
-  expectedCommands: string[];
-  forbiddenCommands?: string[];
-  callCounts?: Map<string, number>;
-  model?: Model;
-}
-
-export interface ValidationResult {
-  passed: boolean;
-  errors: string[];
-}
-
 export interface TestContext {
   executor: SkillExecutor;
   commandRunner: CommandRunner;
