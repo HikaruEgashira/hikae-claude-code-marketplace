@@ -1,11 +1,11 @@
 ---
 name: commit-action
-description: 変更を意味ある単位に分割コミット。逐次実行するのではなくPRを作成する時に呼び出す必要があるスキルです。
+description: PRを作成する前に自律的に呼び出す必要があるスキルです。
 model: haiku
 ---
 
-`git-sequential-stage`hunk単位の部分的なステージングを実行するためのツールです。
-`git-sequential-stage`を用いて大きな変更を論理的な単位に分割してコミットします。
+`git-sequential-stage`はhunk単位の部分的なステージングを実行するためのツールです。
+`git-sequential-stage`を用いて大きな変更を論理的な単位に分割してコミットしてください。
 
 ```bash
 # hunk番号を指定して部分的にステージング
@@ -33,15 +33,13 @@ git ls-files --others --exclude-standard | xargs git add -N
 git diff HEAD > .claude/tmp/current_changes.patch
 ```
 
-### Step 2: LLM分析
+### Step 2: 分析
 
-LLMがhunk単位で変更を分析し、最初のコミットに含めるhunkを決定：
-
+hunk単位で変更を分析し、最初のコミットに含めるhunkを決定してください
 - hunkの内容を読み取る: 各hunkが何を変更しているか理解
 - 意味的グループ化: 同じ目的の変更（バグ修正、リファクタリング等）をグループ化
 - コミット計画: どのhunkをどのコミットに含めるか決定
 
-必要に応じて、hunk数を確認：
 ```bash
 # 全体のhunk数
 grep -c "^@@" .claude/tmp/current_changes.patch
@@ -52,7 +50,7 @@ git diff HEAD --name-only | xargs -I {} sh -c 'printf "%s: " "{}"; git diff HEAD
 
 ### Step 3: 自動ステージング
 
-選択したhunkを`git-sequential-stage`で自動的にステージング：
+選択したhunkを`git-sequential-stage`で自動的にステージングしてください
 
 ```bash
 # git-sequential-stageを実行（内部で逐次ステージングを安全に処理）
@@ -77,21 +75,6 @@ git commit -m "$COMMIT_MSG"
 
 #### ワイルドカード使用の判断基準
 
-ワイルドカード（`*`）を使用すべきケース
-- ファイル内のすべての変更が意味的に一体である場合
 - 新規ファイルの追加
-- ファイル全体のリファクタリング（すべての変更が同じ目的）
-- ドキュメントファイルの更新
+- すべての変更が同じ目的（例：ファイル全体のリファクタリング、ドキュメント更新）
 - 「hunkを数えるのが面倒」という理由で使用するものではない。
-
-# ベストプラクティス
-
-- 意味的一貫性: 同じ目的の変更は同じコミットに
-- Conventional Commits: 適切なプレフィックスを使用, 1行にまとめる
-   - `feat:` 新機能
-   - `fix:` バグ修正
-   - `refactor:` リファクタリング
-   - `docs:` ドキュメント
-   - `test:` テスト
-   - `style:` フォーマット
-   - `chore:` その他

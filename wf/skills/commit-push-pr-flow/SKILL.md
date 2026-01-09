@@ -1,6 +1,6 @@
 ---
 name: commit-push-pr-flow
-description: PRをサクッと作成。タスク完了後に実行する必要があるフロースキルです。
+description: タスク完了後に自律的に実行する必要があるフロースキルです。
 model: haiku
 ---
 

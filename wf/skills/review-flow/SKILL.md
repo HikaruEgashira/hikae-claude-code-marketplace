@@ -1,6 +1,6 @@
 ---
 name: review-flow
-description: PRをペアプロ形式でレビュー。PR作成後に実行する必要があるフロースキルです。
+description: PR作成後に自律的に実行する必要があるフロースキルです。
 argument-hint: [url]
 model: opus
 ---
