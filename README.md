@@ -21,6 +21,7 @@ Personal Claude Code / Codex plugins for PR workflow, agent operations, and harn
 | `commit-push-pr-flow` | After task completion | Create PR |
 | `review-flow` | After PR creation | Review PR |
 | `agent-config-import` | Codex/Claude Code 設定移行 | Import settings.json/config.toml, MCP, skills, prompts, commands |
+| `codex-as-tools` | 現エージェントに無いツール (Google Drive 等 Apps Connectors / MCP) が必要なとき | `codex exec` で codex の能力を借用 |
 | `dreaming` | Stop hook 後（新規 memory 獲得時のみ自動） | 既存 memory を refine（重複統合・矛盾解消・剪定）。transcript は読まず新規獲得もしない。Claude memory を source、Codex `AGENTS.md` に mirror |
 
 ### Commands
